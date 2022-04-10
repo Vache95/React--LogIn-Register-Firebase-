@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import {React,useState} from 'react'
+import {FormLogin,FormRegister,Error} from './components'
+import { Route, Routes } from 'react-router-dom'
+import './App.scss'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+
+ return (
+   <div className="wrapper">
+     <Routes>
+       <Route path='/' element={<FormLogin/>}/>
+       <Route path='/formregister' element={<FormRegister/>}/>
+       <Route path="*" element={<Error/>}/>
+     </Routes>
+   </div>
+  )
 }
 
-export default App;
